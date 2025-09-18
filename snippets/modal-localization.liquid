@@ -1,23 +1,8 @@
 <pre>
-Markets size: {{ localization.available_markets.size }}
-
-{% for market in localization.available_markets %}
-  ---------------------------
+Markets size: {{ shop.markets.size }}
+{% for market in shop.markets %}
   Name: {{ market.name }}
   Handle: {{ market.handle }}
   ID: {{ market.id }}
-{% endfor %}
-</pre>
-
-<pre>
-Current market name: {{ localization.market.name }}
-Current market handle: {{ localization.market.handle }}
-</pre>
-
-<pre>
-Countries size: {{ localization.available_countries.size }}
-
-{% for country in localization.available_countries %}
-  {{ country.name }} ({{ country.iso_code }}) - {{ country.currency.iso_code }}
 {% endfor %}
 </pre>
