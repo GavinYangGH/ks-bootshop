@@ -1,3 +1,10 @@
 <pre>
-{{ localization | json }}
+Markets size: {{ localization.available_markets.size }}
+
+{% for market in localization.available_markets %}
+  ---------------------------
+  Name: {{ market.name }}
+  Handle: {{ market.handle }}
+  ID: {{ market.id }}
+{% endfor %}
 </pre>
