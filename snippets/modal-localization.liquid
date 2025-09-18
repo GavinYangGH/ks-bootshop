@@ -1,41 +1,4 @@
-{% if localization.available_markets.size > 1 %}
-  <div 
-    id="modal-localization" 
-    class="modal fade" 
-    tabindex="-1" 
-    aria-labelledby="modal-localization-label"
-    aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 id="modal-localization-label" class="modal-title">
-            {{ 'general.localization.title' | t }}
-          </h2>
-          <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="{{ 'general.accessibility.close' | t }}">
-            {% render 'svg-icons', icon: 'x', size: 20 %}
-          </button>
-        </div>
-        <div class="modal-body">
-          {% form 'localization' %}
-            <input type="hidden" name="market" value="{{ localization.market.handle }}">
-            <ul class="list-group list-group-flush" aria-labelledby="modal-localization-label">
-              {% for market in localization.available_markets %}
-                <button
-                  class="list-group-item list-group-item-action {% if market.handle == localization.market.handle %}active{% endif %}"
-                  data-market-handle="{{ market.handle }}"
-                  aria-current="{% if market.handle == localization.market.handle %}true{% endif %}"
-                  role="button">
-                  <div class="localization-form-item-text">
-                    <span>
-                      {{ market.name }}
-                    </span>
-                  </div>
-                </button>
-              {% endfor %}
-            </ul>
-          {% endform %}
-        </div>
-      </div>
-    </div>
-  </div>
-{% endif %}
+<p>Markets size: {{ localization.available_markets.size }}</p>
+{% for market in localization.available_markets %}
+  <p>{{ market.name }} ({{ market.handle }})</p>
+{% endfor %}
